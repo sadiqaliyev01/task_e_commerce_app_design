@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   );
                 },
-                child: Expanded(
+                child: const Expanded(
                   child: GridViewBuilder(),
                 ),
               ),

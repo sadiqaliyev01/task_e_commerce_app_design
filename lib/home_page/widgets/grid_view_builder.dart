@@ -18,66 +18,69 @@ class _GridViewBuilderState extends State<GridViewBuilder> {
     List<ProductData> productData = ProductData.productData;
 
     return Expanded(
-      child: GridView.builder(
-        shrinkWrap: true,
-        itemCount: productData.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-        ),
-        itemBuilder: (context, index) {
-          final product = productData[index];
-          return Column(
-            children: [
-              ProductImages(
-                imageLink: product.imageLink,
-              ),
-              Expanded(
-                child: Container(
-                  color: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ProductCategoryText(
-                          productCategoryText: product.productCategory,
-                        ),
-                        const SizedBox(height: 5),
-                        Flexible(
-                          child: Text(
-                            product.productDescription,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: GridView.builder(
+          shrinkWrap: true,
+          itemCount: productData.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+          ),
+          itemBuilder: (context, index) {
+            final product = productData[index];
+            return Column(
+              children: [
+                ProductImages(
+                  imageLink: product.imageLink,
+                ),
+                Expanded(
+                  child: Container(
+                    color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ProductCategoryText(
+                            productCategoryText: product.productCategory,
+                          ),
+                          const SizedBox(height: 5),
+                          Flexible(
+                            child: Text(
+                              product.productDescription,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                              ),
                             ),
                           ),
-                        ),
-                        Row(
-                          children: [
-                            const Icon(
-                              Icons.star,
-                              color: Colors.yellow,
-                            ),
-                            Expanded(
-                              child: ProductRating(
-                                ratingNumber: product.rating.toString(),
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.star,
+                                color: Colors.yellow,
                               ),
-                            ),
-                            Expanded(
-                              child: ProductPrice(
-                                priceAmount: product.price.toStringAsFixed(2),
+                              Expanded(
+                                child: ProductRating(
+                                  ratingNumber: product.rating.toString(),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                              Expanded(
+                                child: ProductPrice(
+                                  priceAmount: product.price.toStringAsFixed(2),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              )
-            ],
-          );
-        },
+                )
+              ],
+            );
+          },
+        ),
       ),
     );
   }
