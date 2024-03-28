@@ -36,7 +36,7 @@ class ProductWidget extends StatelessWidget {
                       product.productDescription,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 14, // Adjust font size
+                        fontSize: 14,
                       ),
                     ),
                   ),
