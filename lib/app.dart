@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_e_commerce_app_design/details_page/details_page.dart';
 import 'package:task_e_commerce_app_design/home_page/home_screen.dart';
 
 class MyApp extends StatelessWidget {
