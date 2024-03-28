@@ -12,12 +12,11 @@ class DetailsScreen extends StatefulWidget {
 
 class _DetailsScreenState extends State<DetailsScreen> {
   String imageLocation = "assets/png_images/tshirt_2.png";
+  int selectedImg = 0;
 
   @override
   Widget build(BuildContext context) {
     List<DetailsImagesData> detailsData = DetailsImagesData.detailsData;
-    int index = 0;
-    final data = detailsData[index];
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -34,51 +33,51 @@ class _DetailsScreenState extends State<DetailsScreen> {
             SizedBox(width: 10),
           ],
         ),
-        body: Column(children: [
-          const SizedBox(height: 20),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
+        body: Column(
+          children: [
+            Center(
               child: SizedBox(
-                height: 300,
-                width: MediaQuery.of(context).size.width,
-                child: Image.asset(
-                  "",
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  data.hoodiePath;
-                  setState(() {});
-                },
-                child: SizedBox(
-                  height: 100,
-                  width: 100,
-                  child: Image.asset(data.hoodiePath),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  data.hoodiePath;
-                  setState(() {});
-                },
-                child: SizedBox(
-                  height: 100,
-                  width: 100,
-                  child: Image.network(
-                    data.hoodiePath,
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child: Container(
+                    decoration: BoxDecoration(color: AppColors.iconsColor),
+                    child: Image.asset(
+                      detailsData[selectedImg].imagePath[selectedImg],
+                    ),
                   ),
                 ),
               ),
-            ],
-          ),
-        ]),
+            ),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ...List.generate(
+                  detailsData.length,
+                  (index) => GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedImg = index;
+                      });
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(8.0),
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: AppColors.iconsColor,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Image.asset(
+                          detailsData[selectedImg].imagePath[index]),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
