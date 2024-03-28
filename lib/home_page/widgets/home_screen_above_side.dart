@@ -15,9 +15,26 @@ class _HomeScreenAboveSideState extends State<HomeScreenAboveSide> {
     return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Search(),
-        AppIcons(icon: Icon(Icons.notifications_none_outlined)),
-        AppIcons(icon: Icon(Icons.shopping_basket_outlined)),
+        SizedBox(width: 20),
+        Expanded(
+          flex: 6,
+          child: Search(),
+        ),
+        SizedBox(width: 10),
+        Expanded(
+          flex: 1,
+          child: AppIcons(
+            icon: Icon(Icons.notifications_none_outlined),
+          ),
+        ),
+        SizedBox(width: 10),
+        Expanded(
+          flex: 1,
+          child: AppIcons(
+            icon: Icon(Icons.shopping_basket_outlined),
+          ),
+        ),
+        SizedBox(width: 20),
       ],
     );
   }

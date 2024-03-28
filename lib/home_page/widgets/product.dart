@@ -60,12 +60,14 @@ class _ProductState extends State<Product> {
                       color: Colors.yellow,
                     ),
                     Expanded(
-                      child:
-                          ProductRating(ratingNumber: widget.rating.toString()),
+                      child: ProductRating(
+                        ratingNumber: widget.rating.toString(),
+                      ),
                     ),
                     Expanded(
                       child: ProductPrice(
-                          priceAmount: widget.price.toStringAsFixed(2)),
+                        priceAmount: widget.price.toStringAsFixed(2),
+                      ),
                     ),
                   ],
                 ),
