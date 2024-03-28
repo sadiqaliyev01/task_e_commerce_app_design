@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task_e_commerce_app_design/constants/app_colors.dart';
-import 'package:task_e_commerce_app_design/details_page/details_page.dart';
 import 'package:task_e_commerce_app_design/home_page/widgets/grid_view_builder.dart';
 import 'package:task_e_commerce_app_design/home_page/widgets/home_screen_above_side.dart';
 import 'package:task_e_commerce_app_design/home_page/widgets/product_categories_texts.dart';
@@ -22,35 +20,24 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.backgroundColor,
-        body: SingleChildScrollView(
+        body: const SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 30),
-              const HomeScreenAboveSide(),
-              const ScrollableImage(),
-              const ProductCategoriesTexts(),
-              const SizedBox(height: 20),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const DetailsPage();
-                      },
-                    ),
-                  );
-                },
-                child: const Expanded(
-                  child: GridViewBuilder(),
-                ),
-              ),
+              SizedBox(height: 30),
+              HomeScreenAboveSide(),
+              ScrollableImage(),
+              ProductCategoriesTexts(),
+              SizedBox(height: 20),
+              GridViewBuilder(),
             ],
           ),
         ),
         bottomNavigationBar: ClipRRect(
           borderRadius: BorderRadius.circular(30),
           child: BottomNavigationBar(
+            selectedItemColor: AppColors.orange,
+            unselectedItemColor: AppColors.black,
+            showUnselectedLabels: true,
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
               BottomNavigationBarItem(

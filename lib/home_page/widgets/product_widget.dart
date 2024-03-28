@@ -21,7 +21,7 @@ class ProductWidget extends StatelessWidget {
           child: Container(
             color: Colors.white,
             //width: MediaQuery.of(context).size.width / 2,
-            height: 100, // Adjust as needed
+            //height: 100, // Adjust as needed
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
