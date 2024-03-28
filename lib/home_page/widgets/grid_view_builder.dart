@@ -21,7 +21,8 @@ class _GridViewBuilderState extends State<GridViewBuilder> {
       child: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: GridView.builder(
-          shrinkWrap: true,
+          //shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
           itemCount: productData.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
