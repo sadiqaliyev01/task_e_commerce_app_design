@@ -34,22 +34,24 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         bottomNavigationBar: ClipRRect(
           borderRadius: BorderRadius.circular(30),
-          child: BottomNavigationBar(
-            selectedItemColor: AppColors.orange,
-            unselectedItemColor: AppColors.black,
-            showUnselectedLabels: true,
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.explore_outlined), label: "Explore"),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.favorite_border_outlined),
-                  label: "Wishlist"),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.message_outlined), label: "Message"),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.account_circle_outlined), label: "Profile"),
-            ],
+          child: ColoredBox(
+            color: Colors.black,
+            child: BottomNavigationBar(
+              selectedItemColor: AppColors.orange,
+              unselectedItemColor: AppColors.black,
+              showUnselectedLabels: true,
+              items: const [
+                BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.explore), label: "Explore"),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.favorite), label: "Wishlist"),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.message), label: "Message"),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.person), label: "Profile"),
+              ],
+            ),
           ),
         ),
       ),

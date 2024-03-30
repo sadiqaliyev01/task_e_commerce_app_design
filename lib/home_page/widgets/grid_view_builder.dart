@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_e_commerce_app_design/data/model/product_data.dart';
 import 'package:task_e_commerce_app_design/details_page/details_page.dart';
-import 'package:task_e_commerce_app_design/home_page/home_screen.dart';
 import 'package:task_e_commerce_app_design/home_page/widgets/product_widget.dart';
 
 class GridViewBuilder extends StatefulWidget {
